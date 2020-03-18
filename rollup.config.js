@@ -1,38 +1,44 @@
+import scss from 'rollup-plugin-scss'
 import resolve from 'rollup-plugin-node-resolve';
 import typescript from 'rollup-plugin-typescript'
 import babel from 'rollup-plugin-babel';
-import { uglify } from "rollup-plugin-uglify";
-import postcss from 'rollup-plugin-postcss'
+import {uglify} from "rollup-plugin-uglify";
+import autoprefixer from 'autoprefixer';
+import postcss from 'postcss';
 import copy from 'rollup-plugin-copy';
-const copyAssets = require('postcss-copy-assets');
+import commonjs from 'rollup-plugin-commonjs';
 
-
-const url = require("postcss-url");
-
-const isProduction = process.env.NODE_ENV === 'production';
+const resolvePath = require('./rollup-plugins/resolve-css-path');
 
 export default {
   input: 'src/index.ts',
   output: {
     file: 'dist/bundle.js',
-    format: 'cjs',
+    format: 'cjs'
   },
   external: [
     'react',
   ],
   plugins: [
-    copy({
-      targets: [{ src: 'src/assets/*', dest: 'dist/assets' }],
-    }),
-    postcss({
-      to: 'dist',
-      plugins: [
-        copyAssets({ base: '../'})
-      ],
+    scss({
+      modules: true,
       extensions: ['.css', '.scss'],
-      extract: 'dist/styles.css',
+      outputStyle: "compressed",
+      processor: css => postcss([autoprefixer, resolvePath()])
+        .process(css)
+        .then(result => {
+          return result.css;
+        })
     }),
-    resolve(),
+    resolve({
+      extensions: ['.ts', '.tsx', '.css', '.scss', '.svg', '.png', '.json'],
+    }),
+    commonjs({
+      include: 'node_modules/**',
+    }),
+    copy({
+      targets: [{src: 'src/assets/*', dest: 'dist/assets'}],
+    }),
     typescript(),
     babel({
       exclude: 'node_modules/**'

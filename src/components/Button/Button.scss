@@ -1,8 +1,13 @@
-.button-new {
-  padding-top: 10px;
-  color: red;
-}
+@import "../styles/variables";
+
 
 .button-container {
-  background: url('../../assets/apple-icon-57x57.png');
+  .button-new {
+    padding-top: 10px;
+    color: red;
+  }
+
+  p {
+    font-family: $fontFamilyRegular;
+  }
 }

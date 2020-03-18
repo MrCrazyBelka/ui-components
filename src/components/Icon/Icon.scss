@@ -1,0 +1,213 @@
+@import "../styles/variables";
+
+i.icon {
+  display: inline-block;
+
+  width: $medium;
+  height: $medium;
+
+  font-style: normal;
+  font-weight: normal;
+  text-decoration: inherit;
+  text-align: center;
+
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-position: center;
+
+  &.return {
+    background-image: url("~assets/icons/icon-return.svg");
+  }
+
+  &.valid {
+    background-image: url("~assets/icons/icon-valid.svg");
+  }
+
+  &.invalid {
+    background-image: url("~assets/icons/icon-invalid.svg");
+  }
+
+  &.warning {
+    background-image: url("~assets/icons/icon-warning.svg");
+  }
+
+  &.chevron.up {
+    background-image: url("~assets/icons/icon-chevron-down.svg");
+    transform: rotate(180deg);
+  }
+
+  &.chevron.down {
+    background-image: url("~assets/icons/icon-chevron-down.svg");
+  }
+
+  &.chevron-dark.up {
+    background-image: url("~assets/icons/icon-chevron-down-dark.svg");
+  }
+
+  &.chevron-dark.down {
+    background-image: url("~assets/icons/icon-chevron-down-dark.svg");
+    transform: rotate(180deg);
+  }
+
+  &.done {
+    background-image: url("~assets/icons/icon-done.svg");
+  }
+
+  &.info {
+    background-image: url("~assets/icons/icon-info.svg");
+  }
+
+  &.addfile {
+    background-image: url("~assets/icons/icon-addfile.svg");
+  }
+
+  &.remove {
+    background-image: url("~assets/icons/icon-remove.svg");
+  }
+
+  &.remove_red {
+    background-image: url("~assets/icons/icon-remove_red.svg");
+  }
+
+  &.edit {
+    background-image: url("~assets/icons/icon-edit.svg");
+  }
+
+  &.error {
+    background-image: url("~assets/icons/icon-error.svg");
+  }
+
+  &.excel {
+    background-image: url("~assets/icons/icon-excel.svg");
+  }
+
+  &.clock {
+    background-image: url("~assets/icons/icon-clock.svg");
+  }
+
+  &.smile {
+    background-image: url("~assets/icons/icon-smile.svg");
+  }
+
+  &.search {
+    background-image: url("~assets/icons/icon-search.svg");
+  }
+
+  &.sad-smile {
+    background-image: url("~assets/icons/icon-sad-smile.svg");
+  }
+
+  &.file-bw {
+    background-image: url("~assets/icons/icon-file-bw.svg");
+  }
+
+  &.documents {
+    background-image: url("~assets/icons/icon-documents.svg");
+  }
+
+  &.phone {
+    background-image: url("~assets/icons/icon-phone.svg");
+  }
+
+  &.mail {
+    background-image: url("~assets/icons/icon-mail.svg");
+  }
+
+  &.mail-bw {
+    background-image: url("~assets/icons/icon-mail-bw.svg");
+  }
+
+  &.bank {
+    background-image: url("~assets/icons/icon-bank.svg");
+  }
+
+  &.login {
+    background-image: url("~assets/icons/icon-login.svg");
+  }
+
+  &.logout {
+    background-image: url("~assets/icons/icon-logout.svg");
+  }
+
+  &.calendar {
+    background-image: url("~assets/icons/icon-calendar.svg");
+  }
+
+  &.calendar-bw {
+    background-image: url("~assets/icons/icon-calendar-bw.svg");
+  }
+
+  &.pin {
+    background-image: url("~assets/icons/icon-pin.svg");
+  }
+
+  &.message {
+    background-image: url("~assets/icons/icon-message.svg");
+  }
+
+  &.cross {
+    background-image: url("~assets/icons/icon-cross.svg");
+  }
+
+  &.user {
+    background-image: url("~assets/icons/icon-user.svg");
+  }
+
+  &.user_dark {
+    background-image: url("~assets/icons/icon-user_dark.svg");
+  }
+
+  &.buildings {
+    background-image: url("~assets/icons/icon-home.svg");
+  }
+
+  &.new_document {
+    background-image: url("~assets/icons/icon-document.svg");
+  }
+}
+
+/*
+|--------------------------------------------------------------------------
+| Sizes
+|--------------------------------------------------------------------------
+*/
+
+.mini.icon {
+  width: $mini;
+  height: $mini;
+}
+
+.tiny.icon {
+  width: $tiny;
+  height: $tiny;
+}
+
+.extrasmall.icon {
+  width: $extraSmall;
+  height: $extraSmall;
+}
+
+.small.icon {
+  width: $small;
+  height: $small;
+}
+
+.large.icon {
+  width: $large;
+  height: $large;
+}
+
+.big.icon {
+  width: $big;
+  height: $big;
+}
+
+.huge.icon {
+  width: $huge;
+  height: $huge;
+}
+
+.massive.icon {
+  width: $massive;
+  height: $massive;
+}

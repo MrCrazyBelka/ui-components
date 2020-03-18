@@ -1,0 +1,207 @@
+@import "fonts";
+
+/*
+|--------------------------------------------------------------------------
+| Functions
+|--------------------------------------------------------------------------
+*/
+
+@function px2rem($pxSize) {
+  $remSize: $pxSize * (1/14);
+  @return #{$remSize}rem;
+}
+
+/*
+|--------------------------------------------------------------------------
+| Sizes
+|--------------------------------------------------------------------------
+*/
+$mini: 12px;
+$tiny: 16px;
+$extraSmall: 20px;
+$small: 24px;
+$medium: 32px;
+$large: 40px;
+$big: 48px;
+$huge: 56px;
+$massive: 64px;
+
+/*
+|--------------------------------------------------------------------------
+| Fonts
+|--------------------------------------------------------------------------
+*/
+
+$fontFamilyRegular: FSElliotPro, Arial, sans-serif;
+$fontFamilyBold: FSElliotPro-Bold, Arial, sans-serif;
+$fontFamilyLight: FSElliotPro-Light, Arial, sans-serif;
+$fontFamilyRouble: Rouble;
+$fontFamilyWhitneyBook: WhitneyBook, FSElliotPro, Arial, sans-serif;
+$fontFamilyWhitneyLight: WhitneyLight, FSElliotPro-Light, Arial, sans-serif;
+$fontFamilyWhitneyMedium: WhitneyMedium, FSElliotPro-Bold, Arial, sans-serif;
+
+$fontsizemini: px2rem(10);
+$fontsizetiny: px2rem(12);
+$fontsizesmall: px2rem(14);
+$fontsizemedium: px2rem(16);
+$fontsizelarge: px2rem(18);
+$fontsizebig: px2rem(20);
+$fontsizehuge: px2rem(22);
+$fontsizemassive: px2rem(24);
+$fontsizegiant: px2rem(28);
+
+$tinyFontSize: 12px;
+$smallFontSize: 14px;
+$largeFontSize: 18px;
+
+//
+//--------------------------------------------------------------------------
+// Colors
+//--------------------------------------------------------------------------
+//
+
+$black: #000;
+
+$greydark: #333;
+$greymiddle: #eee;
+$grey: #666;
+$greylight: #999;
+$greyextralight: #f0f0f0;
+
+$greyaccordion: #e3e1e1;
+$greyaccordionactive: #9b9b9b;
+$greyaccordiontitle: #bbb;
+
+$white4: #f9fafb;
+$white3: #d1d1d1;
+$white2: #ddd;
+$white1: #f5f5f5;
+$white: #fff;
+
+$blue: #00b4e3;
+$blue2: #00bbe4;
+$bluehoverdark: #0999ba;
+$bluehoverlight: #17cfff;
+$darkblue: #008099;
+$lightblue: #f4fbfe;
+
+$red: #df150d;
+$cinnabar: #e5443d;
+
+$yellow: #f57f17;
+$yellow2: #ff9900;
+$yellow3: #fff5eb;
+
+$additional-green: #8cca69;
+
+
+//
+//--------------------------------------------------------------------------
+// Box-shadow
+//--------------------------------------------------------------------------
+//
+
+$boxshadowgrey: rgba(34, 36, 38, .15);
+$boxshadowdark: rgba(0, 0, 0, 0.75);
+
+
+/*
+|--------------------------------------------------------------------------
+| Borders
+|--------------------------------------------------------------------------
+*/
+
+$borderWidth: 1px;
+$borderRadius: 8px;
+$borderRadiusRound: 50%;
+
+//
+//--------------------------------------------------------------------------
+// Margin
+//--------------------------------------------------------------------------
+//
+
+$margin1: 5px;
+$margin2: 10px;
+$margin3: 20px;
+$margin4: 30px;
+$margin5: 40px;
+$margin6: 50px;
+
+//
+//--------------------------------------------------------------------------
+// Padding
+//--------------------------------------------------------------------------
+//
+
+$padding1: 5px;
+$padding2: 10px;
+$padding3: 20px;
+$padding4: 30px;
+$padding5: 40px;
+$padding6: 50px;
+$padding7: 60px;
+
+/*
+|--------------------------------------------------------------------------
+| Indent
+|--------------------------------------------------------------------------
+*/
+
+$indent1: 5px;
+$indent2: 10px;
+$indent3: 20px;
+
+/*
+|--------------------------------------------------------------------------
+| Transition delay
+|--------------------------------------------------------------------------
+*/
+
+$transitionTime1: 150ms;
+$transitionTime2: 200ms;
+$transitionTime3: 300ms;
+$transitionTime4: 500ms;
+
+/*
+|--------------------------------------------------------------------------
+| Responsive
+|--------------------------------------------------------------------------
+*/
+
+@function px2rem($pxSize) {
+  $remSize: $pxSize * (1/14);
+  @return  #{$remSize}rem;
+}
+
+$smallMobileScreen: 320px;
+$tabletBreakpoint: 768px;
+$smallMonitorBreakpoint: 992px;
+$largeMonitorBreakpoint: 1280px;
+
+$largestMobileScreen: ($tabletBreakpoint - 1px);
+$largestTabletScreen: ($smallMonitorBreakpoint - 1px);
+$largestSmallMonitor: ($largeMonitorBreakpoint - 1px);
+
+$breakpoints: (
+        'smallMobile': only screen and (max-width: $smallMobileScreen),
+        'mobile': only screen and (max-width: $largestMobileScreen),
+        'tablet': only screen and (min-width: $tabletBreakpoint) and (max-width: $largestTabletScreen),
+        'tabletAndUp': only screen and (min-width: $tabletBreakpoint),
+        'smallMonitor': only screen and (min-width: $smallMonitorBreakpoint) and (max-width: $largestSmallMonitor),
+        'smallMonitorAndUp': only screen and (min-width: $smallMonitorBreakpoint),
+        'largeMonitor': only screen and (min-width: $largeMonitorBreakpoint),
+);
+
+@mixin device($breakpoint) {
+  $media: map-get($breakpoints, $breakpoint);
+
+  @if not $media {
+    @error "No query could be retrieved from `#{$breakpoint}`. "
+    + "Please make sure it is defined in `$breakpoints` map.";
+  }
+
+  @media #{inspect($media)} {
+    @content;
+  }
+}

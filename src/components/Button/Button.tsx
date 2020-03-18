@@ -10,6 +10,7 @@ export const Button = () => {
   return (
     <div className="button-container">
       <button className="button-new">{getText()}</button>
+      <p>Testasdasdsadasdasd</p>
     </div>
   );
 };
