@@ -9,6 +9,8 @@ import copy from 'rollup-plugin-copy';
 import commonjs from 'rollup-plugin-commonjs';
 
 const resolvePath = require('./rollup-plugins/resolve-css-path');
+import image from '@rollup/plugin-image';
+
 
 export default {
   input: 'src/index.ts',
@@ -27,7 +29,8 @@ export default {
       processor: css => postcss([autoprefixer, resolvePath()])
         .process(css)
         .then(result => {
-          return result.css.replace(/~assets/g, './assets');
+          return result.css.replace(/~assets/g, '/assets');
+          // return result.css;
         })
     }),
     resolve({

@@ -27,6 +27,7 @@
     "@babel/preset-typescript": "^7.8.3",
     "@storybook/addon-actions": "^5.3.14",
     "@storybook/addon-knobs": "^5.3.14",
+    "@rollup/plugin-image": "^2.0.4",
     "@storybook/addon-links": "^5.3.14",
     "@storybook/addons": "^5.3.14",
     "@storybook/react": "^5.3.14",
