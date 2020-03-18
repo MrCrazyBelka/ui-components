@@ -2,8 +2,8 @@
   "name": "new-ui-kit",
   "version": "1.0.0",
   "description": "",
-  "main": "dist/index.js",
-  "style": "dist/styles.css",
+  "main": "dist/bundle.js",
+  "style": "dist/bundle.css",
   "scripts": {
     "build:prod": "NODE_ENV=production rollup -c",
     "build:dev": "NODE_ENV=development rollup -cw",
