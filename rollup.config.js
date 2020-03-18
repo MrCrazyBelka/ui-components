@@ -37,7 +37,7 @@ export default {
       processor: css => postcss([autoprefixer])
         .process(css)
         .then(result => {
-          return result.css.replace(/~assets/g, '/assets');
+          return result.css.replace(/~assets/g, './assets');
           // return result.css;
         })
     }),
