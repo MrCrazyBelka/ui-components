@@ -10,7 +10,15 @@ import commonjs from 'rollup-plugin-commonjs';
 
 const resolvePath = require('./rollup-plugins/resolve-css-path');
 import image from '@rollup/plugin-image';
+// import url from "rollup-plugin-url"
+const url = require("postcss-url");
 
+import dataUri from '@rollup/plugin-data-uri';
+
+// const plugin = url({
+//   limit: 10, // inline files < 10k, copy files > 10k
+//   emitFiles: true // defaults to true
+// });
 
 export default {
   input: 'src/index.ts',
@@ -26,13 +34,14 @@ export default {
       modules: true,
       extensions: ['.css', '.scss'],
       outputStyle: "compressed",
-      processor: css => postcss([autoprefixer, resolvePath()])
+      processor: css => postcss([autoprefixer])
         .process(css)
         .then(result => {
           return result.css.replace(/~assets/g, '/assets');
           // return result.css;
         })
     }),
+    dataUri(),
     resolve({
       extensions: ['.ts', '.tsx', '.css', '.scss', '.svg', '.png', '.json'],
     }),
