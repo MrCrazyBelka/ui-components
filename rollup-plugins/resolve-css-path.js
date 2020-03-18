@@ -2,6 +2,14 @@ const postcss = require('postcss');
 
 
 module.exports = postcss.plugin('resolvePath', () => css => {
-  console.log(css);
-  return css;
+  return {
+    ...css,
+    source: {
+      ...css.source,
+      input: {
+        ...css.source.input,
+        css: css.source.input.css.replace(/~assets/g, './assets')
+      }
+    }
+  };
 });
